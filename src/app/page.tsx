@@ -15,6 +15,7 @@ export default function Home() {
     async function fetchToken() {
       try {
         const { accessToken, refreshToken } = await Highlight.auth.signIn();
+        setRunningInHighlight(true);
         setToken(accessToken);
       } catch (error) {
         setRunningInHighlight(false);

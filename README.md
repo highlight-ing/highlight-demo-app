@@ -9,3 +9,5 @@ To get started, run `pnpm dev`. This will start the Next.js app.
 ## Deploying
 
 We recommend deploying through [Vercel](https://vercel.com).
+
+You can view this deployed app at [https://highlight-demo-app.vercel.app/](https://highlight-demo-app.vercel.app/) or by adding the HL Demo app inside of Highlight.
