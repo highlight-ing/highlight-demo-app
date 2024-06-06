@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@highlight-ai/app-runtime':
-    specifier: ^0.0.3
-    version: 0.0.3
+    specifier: ^0.0.4
+    version: 0.0.4
   next:
     specifier: 14.2.3
     version: 14.2.3(react-dom@18.3.1)(react@18.3.1)
@@ -95,8 +95,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@highlight-ai/app-runtime@0.0.3:
-    resolution: {integrity: sha512-7wYZa8dzETUaAMuDRAr92AARP0BImuBoKmHX1MWqGcgw/CVl842ADil/LHcseFuYsRprDXcjc5/YKicynaPh4g==}
+  /@highlight-ai/app-runtime@0.0.4:
+    resolution: {integrity: sha512-BThpwXrW2xep2MRHq+R6gm4KOFbI8fOTVXPrEwOsYjv7zVrO0Fy+ytfImIu0VGMNW1KI7YOzdqG6EMgwnpE02g==}
     optionalDependencies:
       bun: 1.1.12
     dev: false
