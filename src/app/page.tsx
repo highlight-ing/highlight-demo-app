@@ -6,6 +6,7 @@ import Highlight from "@highlight-ai/app-runtime";
 export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [token, setToken] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     // On page load, fetch a new access token
@@ -18,7 +19,17 @@ export default function Home() {
       }
     }
 
+    async function fetchEmail() {
+      try {
+        const email = await Highlight.user.getEmail();
+        setEmail(email);
+      } catch (error) {
+        setError("Failed to fetch email");
+      }
+    }
+
     fetchToken();
+    fetchEmail();
   }, []);
 
   useEffect(() => {
@@ -33,6 +44,7 @@ export default function Home() {
       <p>This is a demo app to showcase the Highlight Runtime API.</p>
       {error && <p className="text-red-500">{error}</p>}
       {token && <p>Your token is {token}</p>}
+      {email && <p>Your Highlight email is {email}</p>}
     </main>
   );
 }
