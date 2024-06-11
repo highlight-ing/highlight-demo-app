@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Key, Mail, TriangleAlert } from "lucide-react";
 import Highlight from "@highlight-ai/app-runtime";
+import { useEffect, useState } from "react";
+import { Logo } from "@/components/logo";
 
 export default function Home() {
   const [error, setError] = useState<string | null>(null);
@@ -22,6 +24,7 @@ export default function Home() {
     async function fetchEmail() {
       try {
         const email = await Highlight.user.getEmail();
+
         setEmail(email);
       } catch (error) {
         setError("Failed to fetch email");
@@ -39,12 +42,38 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="p-4 space-y-2 ">
-      <h1 className="text-2xl font-bold">Highlight Demo App</h1>
-      <p>This is a demo app to showcase the Highlight Runtime API.</p>
-      {error && <p className="text-red-500">{error}</p>}
-      {token && <p>Your token is {token}</p>}
-      {email && <p>Your Highlight email is {email}</p>}
+    <main className="flex h-svh flex-col items-center justify-center gap-4 text-center">
+      <Logo className="size-16" />
+
+      <div className="flex flex-col items-center gap-2">
+        <h1 className="text-2xl font-bold">Highlight Demo App</h1>
+        <p className="text-muted-foreground">
+          This is a demo app to showcase the Highlight Runtime API.
+        </p>
+      </div>
+
+      <div className="flex flex-col items-center gap-2">
+        {token && (
+          <div className="flex max-w-xl flex-row items-center gap-1.5">
+            <Key className="size-4 shrink-0" />
+            <p className="truncate text-muted-foreground">{token}</p>
+          </div>
+        )}
+
+        {email && (
+          <div className="flex max-w-xl flex-row items-center gap-1.5">
+            <Mail className="size-4 shrink-0" />
+            <p className="truncate text-muted-foreground">{email}</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="flex flex-row items-center gap-1.5">
+            <TriangleAlert className="size-4 shrink-0 text-destructive" />
+            <p className="text-destructive">{error}</p>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
