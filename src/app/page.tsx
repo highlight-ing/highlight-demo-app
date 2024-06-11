@@ -1,8 +1,9 @@
 "use client";
 
-import { Key, Mail, TriangleAlert } from "lucide-react";
 import Highlight from "@highlight-ai/app-runtime";
 import { useEffect, useState } from "react";
+
+import { Key, Mail, TriangleAlert } from "lucide-react";
 import { Logo } from "@/components/logo";
 
 export default function Home() {
@@ -42,7 +43,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex h-svh flex-col items-center justify-center gap-4 text-center">
+    <div className="flex h-svh flex-col items-center justify-center gap-4">
       <Logo className="size-16" />
 
       <div className="flex flex-col items-center gap-2">
@@ -74,6 +75,6 @@ export default function Home() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }
